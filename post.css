@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'IPM';
+    src: url(fonts/IBMPlexSans-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: 'Baskerville';
+    src: url(fonts/LibreBaskerville-Italic.ttf);
+}
+
+body {
+    margin: 0;
+    background: rgba(255, 128, 128, 0.286);
+    font-family: Arial;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.userForms {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.uploadImage,
+.insertCaption {
+    margin-bottom: 20px; 
+}
+
+.uploadImage label,
+.insertCaption label {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+.uploadImage input[type="file"],
+.insertCaption input[type="text"] {
+    width: 300px;
+    height: 30px;
+}
+
+#display_caption{
+	width: 375px;
+    height: 150px;
+    border: 1px solid black;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.btn {
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto; 
+    border-radius: 5px;
+    margin-top: 30px;
+    font-family: 'IPM';
+    border-color: black;
+}
+
+
+#display_image {
+    width: 375px;
+    height: 211px;
+    border: 1px solid black;
+    align-items: center;
+    margin-top: 30px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+#navbar {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+}
+
+#navbar span {
+    float: left;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 30px;
+}
+
+#navbar a {
+    float: right;
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    font: 'IPM';
+}
+
+#navbar #right {
+    float: right;
+    margin-right: 50px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+form #right {
+    float: right;
+    width: 50%;
+    margin: 0 auto;
+    margin-left: 10px;
+}
+
+form #left {
+    float: left;
+    width: 50%;
+    margin: 0 auto;
+    margin-left: 10px;
+}
+
+form {
+    background-color: white;
+    width: 60%;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    font-family: 'IPM';
+}
+
+#forever {
+    font-family: 'Baskerville';
+}

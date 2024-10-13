@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PhotoDiary</title>
+    <link rel="stylesheet" href="post.css">
+</head>
+<body>
+    <header>
+        <div id="navbar">
+            <span>PHOTO <br><div id="forever">xFOREVER</div></span>
+            <div id="right">
+                <a href="ViewPost.html">EDIT POST</a>
+                <a href="post.html">CREATE POST</a>
+                <a href="map.html">MAP VIEW</a>
+                <a href="list.html">LIST VIEW</a>
+            </div>
+        </div>
+    </header>
+
+    <form id="post">
+        <div class="userForms">
+            <div id="left">
+                <div class="uploadImage">
+                    <label for="imageUpload">Upload an Image:</label>
+                    <input type="file" id="imageUpload" accept="image/png, image/jpg">  
+                </div>
+                <div class="insertCaption">
+                    <label for="caption">Insert Caption:</label>
+                    <input type="text" id="caption" maxlength="255">
+                </div>
+                <div class="insertLong">
+                    <label for="caption">Insert Longitude:</label>
+                    <input type="text" id="longitude" maxlength="255">
+                </div>
+                <div class="insertLat">
+                    <label for="caption">Insert Latitude:</label>
+                    <input type="text" id="latitude" maxlength="255">
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="public" name="privacy">
+                    <label for="buy">Public</label>
+                    <input type="radio" id="private" name="privacy">
+                    <label for="sell">Private</label>
+                    <input type="radio" id="friends" name="privacy">
+                    <label for="sell">Friends Only</label>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="right">
+            <div id="display_image"></div>
+            <div id="display_caption"></div>
+            <button type="button" class="btn" onClick = "sendDataToServer()">CREATE POST</button>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+
+    <script src="post.js"></script>
+</body>
+</html>

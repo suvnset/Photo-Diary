@@ -1,0 +1,18 @@
+
+#display_caption{
+	 width: 375px;
+    height: 150px;
+    border: 1px solid black;
+    align-items: center;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+#display_image {
+    width: 375px;
+    height: 211px;
+    border: 1px solid black;
+    display: block; /* Ensures block-level element behavior */
+    margin: 30px auto; /* Center horizontally */
+}
+

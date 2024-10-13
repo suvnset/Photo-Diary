@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'IPM';
+    src: url(fonts/IBMPlexSans-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: 'Baskerville';
+    src: url(fonts/LibreBaskerville-Italic.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #5371a3ae;
+}
+
+#container {
+    margin: 0 auto;
+    height: 100%;
+}
+
+#navbar {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+}
+
+#navbar span {
+    float: left;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 30px;
+}
+
+#navbar a {
+    float: right;
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    font: 'IPM';
+}
+
+#navbar #right {
+    float: right;
+    margin-right: 50px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#content {
+    padding: 20px;
+    height: 75%;
+    width: 60%;
+    background-color: white;
+    margin: 0 auto;
+}
+
+#forever {
+    font-family: 'Baskerville';
+}

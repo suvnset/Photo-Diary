@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Map</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+#map {
+	height: 60em;
+}
+
+.popup-image {
+	max-width: 100px; 
+	max-height: 100px;
+	height: auto; 
+}
+
+.my-control {
+  background: #fff;
+  padding: 5px;
+  width: 80px;
+}
+
+#list, #post {
+    width: 80px;
+}
+
+.leaflet-bar {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  border-radius: 5px;
+}
+
+</style>
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+	crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+	crossorigin=""></script>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+        var map = L.map('map', {
+            zoomSnap: 0.1
+        }).setView([34.0225, -118.285], 16.4);
+   		
+        L.Control.MyControl = L.Control.extend({
+        	  onAdd: function(map) {
+        	    var el = L.DomUtil.create('div', 'leaflet-bar my-control');
+
+        	    el.innerHTML = '<a href="list.html" id="list">List View</a>';
+
+        	    return el;
+        	  },
+
+        	  onRemove: function(map) {
+        	    // Nothing to do here
+        	  }
+        	});
+
+        	L.control.myControl = function(opts) {
+        	  return new L.Control.MyControl(opts);
+        	}
+
+        	L.control.myControl({
+        	  position: 'topright'
+        	}).addTo(map);
+        	
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        L.Control.plus = L.Control.extend({
+      	  onAdd: function(map) {
+      	    var el = L.DomUtil.create('div', 'leaflet-bar my-control');
+
+      	    el.innerHTML = '<a href="post.html" id="post">New Post</a>';
+
+      	    return el;
+      	  },
+
+      	  onRemove: function(map) {
+      	    // Nothing to do here
+      	  }
+      	});
+
+      	L.control.Plus = function(opts) {
+      	  return new L.Control.plus(opts);
+      	}
+
+      	L.control.Plus({
+      	  position: 'bottomright'
+      	}).addTo(map);
+      	
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+        fetch('Map')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            data.forEach(coord => {
+                var marker = L.marker([coord.longitude, coord.latitude]).addTo(map);  
+                console.log(coord.id);
+                //href='ViewPost.html'
+                
+                
+                
+                marker.bindPopup("<a onclick='SetSession(" + coord.id + ")'><img class='popup-image' src='" + coord.image + "'></a>");
+                marker.on('click', function() {
+                	displayImage(coord.id);
+                });
+            });
+        });
+        function displayImage(id) {
+            var url = '/201_NewProject/DisplayImageServlet?imageID=' + id;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'blob';
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var blob = xhr.response;
+                        var imageUrl = URL.createObjectURL(blob);
+
+                        // Find the popup content and its image element
+                        var popupContent = document.querySelector('.leaflet-popup-content');
+                        var popupImage = popupContent.querySelector('.popup-image');
+
+                        if (popupImage) {
+                            // Set the src attribute of the image
+                            popupImage.src = imageUrl;
+                        } else {
+                            console.error("Popup image element not found.");
+                        }
+                    } else {
+                        // Error: Log status and display error message
+                        console.error("Error:", xhr.status);
+                        alert("Error fetching image");
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        
+        
+        function SetSession(id) {
+    	    console.log("in get session");
+        	sessionStorage.setItem("EntryID", id);
+        }
+                   
+        
+        
+    </script>
+</body>
+</html>

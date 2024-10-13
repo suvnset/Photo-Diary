@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PxF Log In</title>
+  <script src="login.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Libre+Baskerville&display=swap"
+    rel="stylesheet">
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    .container{
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        color: #f5f5f5;
+        flex-direction: column;
+        gap: 0
+        
+    }
+
+    h1 {
+        color: black;
+    }
+</style>
+
+<body style=" background: #88A0B2">
+    
+    <div id="LOG IN CONTAINER" class="container" style="display: flex;">
+        <span style="position: absolute; width: 600px; height: 500px; background: #f0f0f0"></span>
+        <span style="position: relative; width: 560px; height: 400px; background: #ffffff" ></span>
+        <span style="position: relative; width: 560px; height: 60px; background: #f0f0f0" ></span>
+        
+        <div id="box" style="position: absolute; height: 360px; display: flex; flex-direction: row; ">
+            <div id="text-form" style="position: absolute; display:flex; flex-direction: column; text-align: left">              
+                <span style="color: black; font-size: 26px; font-family: IBM Plex Sans; font-weight: 700;">PHOTO<br/></span>
+                <span style="color: black; font-size: 24px; font-family: Libre Baskerville; font-style: italic; font-weight: 400;">xFOREVER</span>
+                <span style="height: 60px"></span>
+                
+
+                <form name="loginForm" style="display:flex; flex-direction: column; ">
+                    <div style="display:flex; flex-direction: row; ">
+                        <span style="color: black; font-size: 40px; font-family: Libre Baskerville; font-weight: 700; white-space: nowrap;">Log In</span>
+                        <span style="width: 275px"></span>
+
+                        <input type="button" value="→" onclick="loginUser();" style="width: 40px; height: 40px; background: black; color: white; border: none; border-radius: 10px; cursor: pointer;"/>
+
+                    </div>
+                    <span style="height: 30px"></span>
+                    <span style="color: #858585; font-size: 13px; font-family: Libre Baskerville; font-weight: 400; ">Username</span>
+                    <input type="text" name ="loginUsername" id="login-username" style="width: 300px; height: 20px; border: none; border-bottom: 2px solid #F5F5F5;" required/>
+                    <span style="height: 20px"></span>
+                    <span style="color: #858585; font-size: 13px; font-family: Libre Baskerville; font-weight: 400; ">Password</span>
+                    <input type="password" name ="loginPassword" id="login-password" style="width: 300px; height: 20px; border: none; border-bottom: 2px solid #F5F5F5;" required/>
+                    <span style="height: 20px"></span>
+                    
+                </form>
+            </div>
+            
+            <span style="width: 450px"></span>
+        </div>
+
+        <div id="selection" style="position: absolute; flex-direction: column;">
+            <span style="height: 420px; display: flex; "></span>
+            <div style= "border-radius: 10px; width: 240px; height: 40px; display: flex; flex-direction: row; background: black; justify-content:center">
+                <button onclick="showSignup()" style="color: white; font-size: 13px; font-family: IBM Plex Sans; background-color: black; border: none;">SIGN UP</button>
+                <span style="width: 40px"></span>
+
+                <button onclick="loginGuest()" style="color: white; font-size: 13px; font-family: IBM Plex Sans; background-color: black; border: none;">GUEST</button>
+            </div>
+            
+        </div>          
+    
+    </div>
+
+    <div id="SIGN UP CONTAINER" class="container" style="display: none;">
+        <span style="position: absolute; width: 600px; height: 500px; background: #f0f0f0"></span>
+        <span style="position: relative; width: 560px; height: 400px; background: #ffffff" ></span>
+        <span style="position: relative; width: 560px; height: 60px; background: #f0f0f0" ></span>
+        
+        <div id="box" style="position: absolute; height: 390px; display: flex; flex-direction: row; ">
+            <div id="text-form" style="position: absolute; display:flex; flex-direction: column; text-align: left">              
+                <span style="color: black; font-size: 26px; font-family: IBM Plex Sans; font-weight: 700;">PHOTO<br/></span>
+                <span style="color: black; font-size: 24px; font-family: Libre Baskerville; font-style: italic; font-weight: 400;">xFOREVER</span>
+                <span style="height: 30px"></span>
+                
+
+                <form style="display:flex; flex-direction: column; ">
+                    <div style="display:flex; flex-direction: row; ">
+                        <span style="color: black; font-size: 40px; font-family: Libre Baskerville; font-weight: 700; white-space: nowrap;">Sign Up</span>
+                        <span style="width: 275px"></span>
+
+                        <input type="button" value="→" onclick="registerUser();" style="width: 40px; height: 40px; background: black; color: white; border: none; border-radius: 10px; cursor: pointer;"/>
+
+                    </div>
+                    <span style="height: 30px"></span>
+                    <span style="color: #858585; font-size: 13px; font-family: Libre Baskerville; font-weight: 400; ">Username</span>
+                    <input type="text" id="signup-username" style="width: 300px; height: 20px; border: none; border-bottom: 2px solid #F5F5F5;" required/>
+                    <span style="height: 20px"></span>
+                    <span style="color: #858585; font-size: 13px; font-family: Libre Baskerville; font-weight: 400; ">Password</span>
+                    <input type="password" id="signup-password" style="width: 300px; height: 20px; border: none; border-bottom: 2px solid #F5F5F5;" required/>
+                    <span style="height: 20px"></span>
+                    <span style="color: #858585; font-size: 13px; font-family: Libre Baskerville; font-weight: 400; ">Confirm Password</span>
+                    <input type="password" id="signup-password-confirm" style="width: 300px; height: 20px; border: none; border-bottom: 2px solid #F5F5F5;" required/>
+                    <span style="height: 20px"></span>
+                </form>
+            </div>
+            
+            <span style="width: 450px"></span>
+        </div>
+
+        <div id="selection" style="position: absolute; flex-direction: column;">
+            <span style="height: 420px; display: flex; "></span>
+            <div style= "border-radius: 10px; width: 240px; height: 40px; display: flex; flex-direction: row; background: black; justify-content:center">
+                <button onclick="showLogin()" style="color: white; font-size: 13px; font-family: IBM Plex Sans; background-color: black; border: none;">LOG IN</button>
+                <span style="width: 40px"></span>
+
+                <button onclick="loginGuest()" style="color: white; font-size: 13px; font-family: IBM Plex Sans; background-color: black; border: none;">GUEST</button>
+            </div>
+            
+        </div>          
+    
+    </div>
+
+</body>
+
+
+</html>
