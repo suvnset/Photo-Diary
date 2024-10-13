@@ -1,4 +1,4 @@
-# Photo-Diary
+# Photo Diary
 
 Photo Diary is a social media-style web application where users can upload, share, and interact with photos within a virtual diary. This project was developed as part of a collaborative final for CSCI 201 and showcases both front-end and back-end development skills. Users can tag photos with geolocations, view interactive maps, and control privacy settings, allowing for a personalized and secure photo-sharing experience.
 
